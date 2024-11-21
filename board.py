@@ -18,7 +18,7 @@ def leer_tablero(nivel):
     with open(f'{nivel}.board', 'r') as f:
         lineas = f.readlines()
 
-        for linea in lines:
+        for linea in lineas:
             linea = linea[:-1].strip() # quita el ultimo elemento y el espacio
             print(linea)
 
