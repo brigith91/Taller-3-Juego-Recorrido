@@ -1,6 +1,6 @@
 SPACE = '🟢'
 ROBOT = '🔴'
-OBSTA = '⚫ '
+OBSTA = '⚫'
 
 
 tablero = (
