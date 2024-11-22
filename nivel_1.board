@@ -1,7 +1,7 @@
 # VARIABLES
-s : ESPACIO
-r : ROBOT
-m : MURO
+s = ESPACIO
+r = ROBOT
+m = MURO
 
 # TABLERO 
 mmmmmmmm

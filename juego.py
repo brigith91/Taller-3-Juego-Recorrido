@@ -25,7 +25,7 @@ def imprimir_tablero(tablero):
 
     print('    ', end='')
     for i in range(len(tablero[0])):
-        print(f'{i + 1} ', end='')
+        print(f'{i + 1} ', end=' ')
     print()
 
     for i, fila in enumerate(tablero):
@@ -39,7 +39,7 @@ def imprimir_tablero(tablero):
 
     print('    ', end='')
     for i in range(len(tablero[0])):
-        print(f'{i + 1} ', end='')
+        print(f'{i + 1} ', end=' ')
     print()
 
 
