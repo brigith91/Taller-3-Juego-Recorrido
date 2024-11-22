@@ -1,5 +1,5 @@
 import board
-import movimiento_juego_recorrido as mv
+import movimiento as mv
 import os
 
 
@@ -114,7 +114,7 @@ def leer_direccion():
 
 
 def juego():
-    tab = board.tablero
+    tab = board.leer_tablero('nivel_1')
     imprimir_tablero(tab)
     direccion = leer_direccion()
 

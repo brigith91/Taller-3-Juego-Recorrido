@@ -1,6 +1,6 @@
-SPACE = '.'
-ROBOT = 'R'
-OBSTA = 'X'
+SPACE = '🟢'
+ROBOT = '🔴'
+OBSTA = '⚫ '
 
 
 tablero = (
@@ -15,12 +15,22 @@ tablero = (
 )
 
 def leer_tablero(nivel):
+
+    tablero = []
+    
+
     with open(f'{nivel}.board', 'r') as f:
         lineas = f.readlines()
 
         for linea in lineas:
             linea = linea[:-1].strip() # quita el ultimo elemento y el espacio
-            print(linea)
+            linea = linea.replace('s', SPACE)
+            linea = linea.replace('r', ROBOT)
+            linea = linea.replace('o', OBSTA)
+
+            linea = list(linea)
+            tablero.append(linea)
+    return tablero
 
 
 if __name__ == '__main__':
