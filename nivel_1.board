@@ -1,4 +1,10 @@
-    ssssssss
-sssorsss
-ssssssss
-ssssssss
+# VARIABLES
+s : ESPACIO
+r : ROBOT
+m : MURO
+
+# TABLERO 
+mmmmmmmm
+msssrmmm
+mmmssssm
+mmmmmmmm
