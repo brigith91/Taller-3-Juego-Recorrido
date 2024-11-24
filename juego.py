@@ -77,8 +77,8 @@ def get_coordenada_direccion(fila, columna, direccion):
 
 def empujar_caja(fila, columna, direccion, tablero):
     
-    fila_obj, columna_obj = get_coordenada_direccion(fila, columna, direccio)
-    if fila_obj == -1 or columna_obj == -1
+    fila_obj, columna_obj = get_coordenada_direccion(fila, columna, direccion)
+    if fila_obj == -1 or columna_obj == -1:
         return False
 
     if not movimiento_en_limites(fila_obj, columna_obj, len(tablero), len(tablero[0])):
@@ -98,8 +98,8 @@ def mover_robot(tablero, direccion):
     fila, columna = buscar_robot(tablero)
     fila_obj, columna_obj = fila, columna
 
-    fila_obj, columna_obj = get_coordenada_direccion(fila, columna, direccio)
-    if fila_obj == -1 or columna_obj == -1
+    fila_obj, columna_obj = get_coordenada_direccion(fila, columna, direccion)
+    if fila_obj == -1 or columna_obj == -1:
         return False
 
     if not movimiento_en_limites(fila_obj, columna_obj, len(tablero), len(tablero[0])):
