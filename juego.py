@@ -54,9 +54,11 @@ def movimiento_en_limites(fila, columna, len_filas, len_columnas):
     if fila < 0 or columna < 0 or fila >= len_filas or columna >= len_columnas:
         return False
     return True
+def mover_objeto(tablero, fila, columna, fila_obj, columna_obj, obj):
+    tablero[fila_obj][columna_obj] = tablero[fila][columna]
+    tablero[fila][columna] = obj
 
-def empujar_caja(fila, columna, direccion, tablero):
-    
+def get_coordenada_direccion(fila, columna, direccion):
     fila_obj, columna_obj = fila, columna
 
     if direccion == mv.ARRIBA:
@@ -68,6 +70,15 @@ def empujar_caja(fila, columna, direccion, tablero):
     elif direccion == mv.DERECHA:
         columna_obj += 1
     else:
+        return (-1, -1)
+
+    return(fila_obj, columna_obj)
+
+
+def empujar_caja(fila, columna, direccion, tablero):
+    
+    fila_obj, columna_obj = get_coordenada_direccion(fila, columna, direccio)
+    if fila_obj == -1 or columna_obj == -1
         return False
 
     if not movimiento_en_limites(fila_obj, columna_obj, len(tablero), len(tablero[0])):
@@ -75,8 +86,9 @@ def empujar_caja(fila, columna, direccion, tablero):
         return False
 
     if tablero[fila_obj][columna_obj] == board.SPACE:
-        tablero[fila][columna]=board.OBSTA
+        tablero[fila][columna]=board.SPACE
         tablero[fila_obj][columna_obj]=board.CAJA
+        mover_objeto(tablero, fila, columna, fila_obj, columna_obj, board.SPACE)
         return True
 
     else:
@@ -86,32 +98,24 @@ def mover_robot(tablero, direccion):
     fila, columna = buscar_robot(tablero)
     fila_obj, columna_obj = fila, columna
 
-    if direccion == mv.ARRIBA:
-        fila_obj -= 1  # fila = fila - 1
-    elif direccion == mv.ABAJO:
-        fila_obj += 1
-    elif direccion == mv.IZQUIERDA:
-        columna_obj -= 1
-    elif direccion == mv.DERECHA:
-        columna_obj += 1
-    else:
-        print('No se reconoce la direccion')
+    fila_obj, columna_obj = get_coordenada_direccion(fila, columna, direccio)
+    if fila_obj == -1 or columna_obj == -1
+        return False
 
     if not movimiento_en_limites(fila_obj, columna_obj, len(tablero), len(tablero[0])):
         print('Movimiento no valido')
         return False
 
     if tablero[fila_obj][columna_obj] == board.SPACE:
-        tablero[fila][columna]=board.OBSTA
-        tablero[fila_obj][columna_obj]=board.ROBOT
+        mover_objeto(tablero, fila, columna, fila_obj, columna_obj, board.OBSTA)
         return True
 
     elif tablero[fila_obj][columna_obj] == board.CAJA:
         pudo_mover = empujar_caja(fila_obj, columna_obj, direccion, tablero)
         if pudo_mover:
-            tablero[fila][columna]=board.OBSTA
-            tablero[fila_obj][columna_obj]=board.ROBOT
-            return True
+            mover_objeto(tablero, fila, columna, fila_obj, columna_obj, board.OBSTA)
+
+        return pudo_mover
 
     else:
         return False
