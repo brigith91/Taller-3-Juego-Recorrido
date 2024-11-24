@@ -2,9 +2,10 @@
 s = ESPACIO
 r = ROBOT
 m = MURO
+c = CAJA
 
 # TABLERO 
 mmmmmmmm
-msssrmmm
-mmmssssm
+mscsrsmm
+mmsssssm
 mmmmmmmm

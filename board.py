@@ -1,7 +1,7 @@
 SPACE = '🟢'
-ROBOT = '🔴'
-OBSTA = '⚫'
-
+ROBOT = '👤'
+OBSTA = '🥥'
+CAJA  = '🟣'
 
 # tablero = (
 #     [SPACE, SPACE, SPACE, SPACE, SPACE, SPACE, SPACE],
@@ -41,6 +41,9 @@ def leer_tablero(nivel):
                     tipo = ROBOT
                 elif tipo == 'MURO':
                     tipo = OBSTA
+                elif tipo == 'CAJA':
+                    tipo = CAJA
+
 
                 variables[var] = tipo
             elif seccion == '# TABLERO':
